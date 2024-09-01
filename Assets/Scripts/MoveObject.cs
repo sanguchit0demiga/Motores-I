@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class MoveObject : MonoBehaviour
 {
@@ -40,6 +41,10 @@ public class MoveObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             CanJump = true;
+        }
+        if (collision.gameObject.CompareTag("Killzone"))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
