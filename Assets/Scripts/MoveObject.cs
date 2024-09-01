@@ -46,5 +46,10 @@ public class MoveObject : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+        if (collision.gameObject.CompareTag("Goal"))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
+
 }
