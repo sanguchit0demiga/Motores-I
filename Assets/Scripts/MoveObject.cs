@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;   
 
 public class MoveObject : MonoBehaviour
 {
     // Start is called before the first frame update
+    public TMPro.TextMeshProUGUI scoretext;
     public float speed;
     public float jumpforce;
     public Vector2 inputvector;
@@ -14,7 +17,7 @@ public class MoveObject : MonoBehaviour
     public Vector3 velocity;
     public float velocityMagnitude;
     public bool CanJump;
-
+    public int collectedItems;
     void Start()
     {
        rigidBody = GetComponent<Rigidbody>(); 
@@ -37,7 +40,7 @@ public class MoveObject : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("choque contra: " + collision.gameObject.tag);
+        
         if (collision.gameObject.CompareTag("Ground"))
         {
             CanJump = true;
@@ -49,6 +52,12 @@ public class MoveObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Goal"))
         {
             SceneManager.LoadScene(1);
+        }
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            Destroy(collision.gameObject);
+            collectedItems++;
+            scoretext.text = collectedItems.ToString();
         }
     }
 
