@@ -47,7 +47,7 @@ public class MoveObject : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Killzone"))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
         if (collision.gameObject.CompareTag("Goal"))
         {
