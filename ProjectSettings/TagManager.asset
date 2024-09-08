@@ -10,6 +10,8 @@ TagManager:
   - Goal
   - Item
   - Camera
+  - Labrynth
+  - Labyrinth
   layers:
   - Default
   - TransparentFX
